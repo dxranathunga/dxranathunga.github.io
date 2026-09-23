@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Scientific profile of Dineli T. S. Ranathunga, Ph.D. Computational chemist specializing in molecular dynamics, force fields, free-energy methods, and scientific software.">
+  <meta name="theme-color" content="#07111f">
+  <title>Dineli T. S. Ranathunga | Computational Chemist</title>
+  <style>
+    :root {
+      --ink: #102033;
+      --muted: #617086;
+      --paper: #f7fafc;
+      --white: #ffffff;
+      --navy: #07111f;
+      --blue: #1769aa;
+      --cyan: #16b8c4;
+      --violet: #7259c6;
+      --line: #dbe5ed;
+      --shadow: 0 18px 45px rgba(9, 28, 49, 0.10);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+    a { color: inherit; }
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 10px;
+      z-index: 10;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: var(--white);
+      color: var(--navy);
+    }
+    .skip-link:focus { left: 10px; }
+
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+      background: rgba(7,17,31,.86);
+      backdrop-filter: blur(18px);
+    }
+    .nav-inner, .wrap { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 70px;
+    }
+    .brand {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 750;
+      letter-spacing: .02em;
+    }
+    .brand span { color: var(--cyan); }
+    .nav-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: flex-end; }
+    .nav-links a {
+      color: #dbe8f2;
+      text-decoration: none;
+      font-size: .88rem;
+    }
+    .nav-links a:hover, .nav-links a:focus { color: var(--cyan); }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 110px 0 92px;
+      color: var(--white);
+      background:
+        radial-gradient(circle at 84% 10%, rgba(22,184,196,.26), transparent 27%),
+        radial-gradient(circle at 12% 70%, rgba(114,89,198,.22), transparent 30%),
+        linear-gradient(135deg, #07111f 0%, #0c2340 55%, #082d3c 100%);
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -5% -110px -5%;
+      height: 170px;
+      background: var(--paper);
+      transform: rotate(-3deg);
+      transform-origin: center;
+    }
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 18px;
+      color: #8de7eb;
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 32px;
+      height: 2px;
+      background: var(--cyan);
+    }
+    h1, h2, h3 { margin: 0; line-height: 1.15; letter-spacing: -.025em; }
+    h1 { max-width: 760px; font-size: clamp(2.7rem, 7vw, 5.8rem); }
+    .hero-lede {
+      max-width: 690px;
+      margin: 25px 0 0;
+      color: #c9d8e6;
+      font-size: clamp(1.03rem, 1.7vw, 1.25rem);
+    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border: 1px solid rgba(255,255,255,.26);
+      border-radius: 999px;
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 750;
+      font-size: .9rem;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+    .button:hover, .button:focus { transform: translateY(-2px); border-color: var(--cyan); }
+    .button.primary { border-color: var(--cyan); background: var(--cyan); color: #06202b; }
+    .button.secondary { background: rgba(255,255,255,.06); }
+
+    .molecule {
+      position: relative;
+      min-height: 330px;
+      opacity: .93;
+    }
+    .molecule svg { width: 100%; height: 100%; min-height: 330px; overflow: visible; }
+    .molecule .bond { stroke: rgba(141,231,235,.45); stroke-width: 2; }
+    .molecule .node { fill: #0c2d45; stroke: #8de7eb; stroke-width: 2; }
+    .molecule .node.hot { fill: var(--violet); stroke: #dfd8ff; }
+    .molecule .halo { fill: none; stroke: rgba(22,184,196,.18); stroke-width: 1.5; stroke-dasharray: 4 8; }
+
+    main { position: relative; z-index: 1; }
+    section { padding: 82px 0 0; }
+    .section-heading { max-width: 750px; margin-bottom: 28px; }
+    .section-kicker {
+      margin-bottom: 10px;
+      color: var(--blue);
+      font-size: .78rem;
+      font-weight: 850;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    h2 { font-size: clamp(1.8rem, 3vw, 2.75rem); }
+    .section-heading p { margin: 13px 0 0; color: var(--muted); }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: -10px;
+    }
+    .stat, .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+    .stat { padding: 24px; }
+    .stat strong { display: block; color: var(--blue); font-size: 2rem; line-height: 1; }
+    .stat span { display: block; margin-top: 10px; color: var(--muted); font-size: .88rem; }
+
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .card { padding: 28px; }
+    .card h3 { font-size: 1.22rem; }
+    .card p { color: var(--muted); }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 20px; }
+    .tag {
+      display: inline-flex;
+      padding: 7px 10px;
+      border: 1px solid #cfe6eb;
+      border-radius: 999px;
+      color: #0e6270;
+      background: #f0fbfc;
+      font-size: .82rem;
+      font-weight: 700;
+    }
+
+    .timeline { position: relative; display: grid; gap: 18px; }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 8px;
+      bottom: 8px;
+      left: 10px;
+      width: 2px;
+      background: linear-gradient(var(--cyan), var(--violet));
+    }
+    .timeline-item { position: relative; padding-left: 38px; }
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      top: 9px;
+      left: 3px;
+      width: 16px;
+      height: 16px;
+      border: 3px solid var(--paper);
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 0 2px var(--cyan);
+    }
+    .timeline-date { color: var(--blue); font-size: .8rem; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
+    .timeline h3 { margin-top: 4px; font-size: 1.15rem; }
+    .timeline p { margin: 7px 0 0; color: var(--muted); }
+
+    .project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .project-card { position: relative; overflow: hidden; }
+    .project-card::before {
+      content: "";
+      display: block;
+      height: 5px;
+      background: linear-gradient(90deg, var(--cyan), var(--violet));
+    }
+    .project-card .card-body { padding: 24px; }
+    .project-card p { margin-bottom: 0; }
+
+    .publication-list { display: grid; gap: 12px; }
+    .publication {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 20px;
+      align-items: start;
+      padding: 22px 0;
+      border-top: 1px solid var(--line);
+    }
+    .publication:first-child { border-top: 0; padding-top: 0; }
+    .publication-year { color: var(--violet); font-size: 1.15rem; font-weight: 850; }
+    .publication p { margin: 0; color: var(--muted); }
+    .publication strong { color: var(--ink); }
+
+    .service-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
+    .service-grid .card p { margin-bottom: 0; }
+    footer {
+      margin-top: 90px;
+      padding: 50px 0;
+      color: #bfcedc;
+      background: var(--navy);
+    }
+    footer h2 { color: var(--white); font-size: 2rem; }
+    footer p { max-width: 640px; }
+    .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .footer-links { display: flex; gap: 16px; flex-wrap: wrap; }
+    .footer-links a { color: #8de7eb; text-decoration: none; }
+    .footer-links a:hover, .footer-links a:focus { text-decoration: underline; }
+    .fine-print { margin-top: 32px; color: #7f93a8; font-size: .8rem; }
+
+    @media (max-width: 900px) {
+      .hero-grid, .two-col { grid-template-columns: 1fr; }
+      .molecule { min-height: 240px; max-width: 600px; }
+      .molecule svg { min-height: 240px; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .project-grid, .service-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 620px) {
+      .nav-inner { align-items: flex-start; padding: 15px 0; gap: 12px; }
+      .nav-links { gap: 10px 14px; }
+      .hero { padding-top: 70px; }
+      .stats, .project-grid, .service-grid { grid-template-columns: 1fr; }
+      .publication { grid-template-columns: 1fr; gap: 4px; }
+      .nav-links a { font-size: .8rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top">Dineli <span>Ranathunga</span></a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#experience">Experience</a>
+        <a href="#publications">Publications</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div id="top" class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Computational Chemistry · Molecular Simulation</div>
+        <h1>Building better molecular models for better scientific decisions.</h1>
+        <p class="hero-lede">I’m Dineli T. S. Ranathunga, Ph.D. — a computational chemist and scientific software developer working at the intersection of molecular dynamics, force fields, free-energy methods, and AI/ML.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#research">Explore my work</a>
+          <a class="button secondary" href="mailto:dxranathunga@gmail.com">Get in touch</a>
+        </div>
+      </div>
+      <div class="molecule" aria-hidden="true">
+        <svg viewBox="0 0 520 360" role="img">
+          <circle class="halo" cx="270" cy="180" r="145"></circle>
+          <circle class="halo" cx="270" cy="180" r="105"></circle>
+          <path class="bond" d="M74 223 L145 124 L251 162 L321 77 L424 137 L382 267 L270 180 L145 273 Z"></path>
+          <path class="bond" d="M145 124 L145 273 M251 162 L270 180 M321 77 L270 180 M424 137 L270 180 M382 267 L270 180"></path>
+          <circle class="node hot" cx="74" cy="223" r="15"></circle>
+          <circle class="node" cx="145" cy="124" r="12"></circle>
+          <circle class="node" cx="251" cy="162" r="16"></circle>
+          <circle class="node hot" cx="321" cy="77" r="13"></circle>
+          <circle class="node" cx="424" cy="137" r="17"></circle>
+          <circle class="node" cx="382" cy="267" r="12"></circle>
+          <circle class="node hot" cx="270" cy="180" r="20"></circle>
+          <circle class="node" cx="145" cy="273" r="11"></circle>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <main id="main">
+    <section id="about">
+      <div class="wrap">
+        <div class="stats" aria-label="Career highlights">
+          <div class="stat"><strong>12+</strong><span>Years in molecular simulation and computational chemistry</span></div>
+          <div class="stat"><strong>124</strong><span>Early-stage pharmaceutical projects supported</span></div>
+          <div class="stat"><strong>Ph.D.</strong><span>Computational Chemistry, UT Dallas</span></div>
+          <div class="stat"><strong>8+</strong><span>Peer-reviewed publications and scientific contributions</span></div>
+        </div>
+        <div class="section-heading" style="margin-top: 72px;">
+          <div class="section-kicker">About</div>
+          <h2>From physical models to practical research platforms.</h2>
+          <p>I develop computational methods that help scientists understand molecular interactions, prioritize compounds, and make better decisions across drug discovery, drug delivery, formulation, biophysics, materials, and engineering. My work combines physical chemistry, molecular simulation, data-driven modeling, and software engineering.</p>
+        </div>
+        <div class="two-col">
+          <article class="card">
+            <h3>What I bring</h3>
+            <p>A scientist-developer mindset: I care about the physical accuracy of a model, the quality of its implementation, and the clarity of the scientific decision it enables.</p>
+            <div class="tag-list">
+              <span class="tag">Force-field development</span>
+              <span class="tag">QM / MD</span>
+              <span class="tag">Free-energy methods</span>
+              <span class="tag">Scientific software</span>
+            </div>
+          </article>
+          <article class="card">
+            <h3>How I work</h3>
+            <p>I collaborate across chemistry, biology, pharmacy, engineering, and materials science teams, translating complex computational results into reproducible workflows, useful tools, and actionable conclusions.</p>
+            <div class="tag-list">
+              <span class="tag">Python</span>
+              <span class="tag">C / C++</span>
+              <span class="tag">HPC / GPU</span>
+              <span class="tag">AI / ML</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="wrap">
+        <div class="section-heading">
+          <div class="section-kicker">Research focus</div>
+          <h2>Questions I like to work on.</h2>
+          <p>My research spans the scale from electronic structure and force-field construction to complex biomolecular and pharmaceutical systems.</p>
+        </div>
+        <div class="project-grid">
+          <article class="card project-card"><div class="card-body"><h3>Accurate molecular models</h3><p>Developing and applying atomistic, coarse-grained, polarizable, and machine-learning force-field workflows for chemically diverse systems.</p><div class="tag-list"><span class="tag">AMOEBA</span><span class="tag">Polarizable models</span><span class="tag">Coarse-grained MD</span></div></div></article>
+          <article class="card project-card"><div class="card-body"><h3>Free energy and enhanced sampling</h3><p>Using FEP, umbrella sampling, metadynamics, ABF, and SMD to study binding, permeation, folding, adsorption, and molecular recognition.</p><div class="tag-list"><span class="tag">FEP</span><span class="tag">Metadynamics</span><span class="tag">Binding free energy</span></div></div></article>
+          <article class="card project-card"><div class="card-body"><h3>Drug development platforms</h3><p>Building MD, QM, AI/ML, QSAR/QSPR, and PBPK-linked workflows for solubility, dissolution, permeability, formulation, delivery, and ADMET questions.</p><div class="tag-list"><span class="tag">Drug delivery</span><span class="tag">Formulation</span><span class="tag">ADMET</span></div></div></article>
+          <article class="card project-card"><div class="card-body"><h3>Biomolecular systems</h3><p>Modeling proteins, peptides, ligands, membranes, nucleosomes, transport-related systems, and protein-surface interactions.</p><div class="tag-list"><span class="tag">Proteins</span><span class="tag">Membranes</span><span class="tag">Protein-ligand interactions</span></div></div></article>
+          <article class="card project-card"><div class="card-body"><h3>Materials and interfaces</h3><p>Connecting molecular-level structure and dynamics to polymers, ionic liquids, nanoparticles, titanium implants, self-assembled monolayers, and surfaces.</p><div class="tag-list"><span class="tag">Ionic liquids</span><span class="tag">Polymers</span><span class="tag">Nanomaterials</span></div></div></article>
+          <article class="card project-card"><div class="card-body"><h3>Scalable scientific computing</h3><p>Developing reproducible Python and C/C++ tools for Linux, HPC, GPU-enabled, and cloud workflows using MPI, CUDA, AWS, and Rescale.</p><div class="tag-list"><span class="tag">Python</span><span class="tag">C / C++</span><span class="tag">HPC / GPU</span></div></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="wrap">
+        <div class="section-heading">
+          <div class="section-kicker">Experience</div>
+          <h2>Research, development, and scientific leadership.</h2>
+          <p>Selected milestones from industry and academic research.</p>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item"><div class="timeline-date">2025 — Present</div><h3>Computational Chemist, Scientist III · Thermo Fisher Scientific</h3><p>Lead computational chemistry work across early-stage drug development projects, developing MD, QM, FEP, AI/ML, QSAR/QSPR, and statistical workflows for compound selection, solubility, bioavailability, delivery, formulation, and ADMET questions.</p></article>
+          <article class="timeline-item"><div class="timeline-date">2022 — 2025</div><h3>Computational Chemist, Scientist II · Thermo Fisher Scientific</h3><p>Integrated MD, QM, AI/ML, and PBPK approaches; developed workflows for dissolution and permeability; optimized HPC and cloud workflows; and supported computational drug development decisions.</p></article>
+          <article class="timeline-item"><div class="timeline-date">2021 — 2022</div><h3>Postdoctoral Research Associate · The University of Texas at Dallas</h3><p>Developed AMOEBA polarizable force fields for bio-based ionic liquids using MD and QM, and applied MD/FEP methods to breast-cancer therapeutic and nucleosomal systems.</p></article>
+          <article class="timeline-item"><div class="timeline-date">2016 — 2021</div><h3>Research Assistant · The University of Texas at Dallas</h3><p>Built molecular simulation workflows for protein folding, binding, drug delivery, ionic-liquid coatings, nanoparticles, polymers, and tunable-wettability surfaces; edited LAMMPS source code for coarse-grained simulations.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="toolkit">
+      <div class="wrap">
+        <div class="section-heading">
+          <div class="section-kicker">Technical toolkit</div>
+          <h2>Tools I use to turn ideas into reproducible workflows.</h2>
+        </div>
+        <div class="two-col">
+          <article class="card"><h3>Programming and infrastructure</h3><div class="tag-list"><span class="tag">Python</span><span class="tag">C / C++</span><span class="tag">Bash</span><span class="tag">Fortran</span><span class="tag">SQL</span><span class="tag">MPI</span><span class="tag">CUDA</span><span class="tag">Linux / Unix</span><span class="tag">AWS</span><span class="tag">Rescale</span></div></article>
+          <article class="card"><h3>Simulation and analysis</h3><div class="tag-list"><span class="tag">NAMD</span><span class="tag">AMBER</span><span class="tag">GROMACS</span><span class="tag">LAMMPS</span><span class="tag">Tinker</span><span class="tag">OpenMM</span><span class="tag">Gaussian</span><span class="tag">Psi4</span><span class="tag">VMD</span><span class="tag">cpptraj</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="wrap">
+        <div class="section-heading">
+          <div class="section-kicker">Selected publications</div>
+          <h2>Scientific work in print and in progress.</h2>
+          <p>Selected papers and contributions from molecular simulation, biophysics, materials, and drug development.</p>
+        </div>
+        <div class="card publication-list">
+          <article class="publication"><div class="publication-year">2026</div><p><strong>Konagurthu, S.; Ranathunga, D. T. S.; et al.</strong> “The predictive edge: modeling and simulation in drug product development.” <em>Advanced Drug Delivery Reviews</em>, 230, 115784.</p></article>
+          <article class="publication"><div class="publication-year">2023</div><p><strong>Ranathunga, D. T. S.; Torabifard, H.</strong> “Histone tail electrostatics modulate E2-E3 enzyme dynamics.” <em>Physical Chemistry Chemical Physics</em>, 25, 3361–3374.</p></article>
+          <article class="publication"><div class="publication-year">2023</div><p><strong>Arteaga, A.; Ranathunga, D. T. S.; et al.</strong> “Exogenous protein delivery of ionic liquid-mediated HMGB1 coating on titanium implants.” <em>Langmuir</em>, 39, 2204–2217.</p></article>
+          <article class="publication"><div class="publication-year">2021</div><p><strong>Ranathunga, D. T. S.; Arteaga, A.; et al.</strong> “Molecular-level understanding of the influence of ions and water on HMGB1 adsorption induced by surface hydroxylation of titanium implants.” <em>Langmuir</em>, 37, 10100–10114.</p></article>
+          <article class="publication"><div class="publication-year">2020</div><p><strong>Ranathunga, D. T. S.; Shamir, A.; Dai, X.; Nielsen, S. O.</strong> “Molecular dynamics simulations of water condensation on surfaces with tunable wettability.” <em>Langmuir</em>, 36, 7383–7391.</p></article>
+          <article class="publication"><div class="publication-year">2019</div><p><strong>Kam, H. C.; Ranathunga, D. T. S.; et al.</strong> “Spectroscopic characterization and in silico modelling of polyvinylpyrrolidone as an anion-responsive fluorescent polymer in aqueous media.” <em>Supramolecular Chemistry</em>, 31, 514–522.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="service">
+      <div class="wrap">
+        <div class="section-heading">
+          <div class="section-kicker">Scientific community</div>
+          <h2>Mentorship, service, and communication.</h2>
+        </div>
+        <div class="service-grid">
+          <article class="card"><h3>Mentorship</h3><p>Mentored 11 graduate students, 10 undergraduates, and 3 experimental postdocs in computational methods.</p></article>
+          <article class="card"><h3>Peer review and editing</h3><p>Guest Editor for <em>Pharmaceutics</em> and reviewer for molecular modeling, physical chemistry, pharmaceutical science, and related journals.</p></article>
+          <article class="card"><h3>Recognition</h3><p>ACS Postdoc to Faculty award, NVIDIA GPU Award presentation, poster and oral presentation awards, and graduate teaching awards.</p></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="wrap">
+      <div class="footer-row">
+        <div>
+          <div class="section-kicker">Contact</div>
+          <h2>Let’s build better models.</h2>
+          <p>For collaborations, scientific software, computational chemistry, or research opportunities, I’d be glad to connect.</p>
+        </div>
+        <div class="footer-links">
+          <a href="mailto:dxranathunga@gmail.com">Email</a>
+          <!-- Replace the placeholder URLs below before publishing. -->
+          <a href="#" aria-label="LinkedIn profile placeholder">LinkedIn</a>
+          <a href="#" aria-label="Google Scholar profile placeholder">Google Scholar</a>
+        </div>
+      </div>
+      <p class="fine-print">© 2026 Dineli T. S. Ranathunga · Built as a lightweight, dependency-free GitHub Pages profile.</p>
+    </div>
+  </footer>
+</body>
+</html>
