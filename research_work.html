@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Research and development work by Dineli T. S. Ranathunga, Ph.D.">
+  <meta name="theme-color" content="#07111f">
+  <title>Research &amp; Development Work | Dineli T. S. Ranathunga</title>
+  <style>
+    :root { --ink:#102033; --muted:#617086; --paper:#f7fafc; --white:#fff; --navy:#07111f; --blue:#1769aa; --cyan:#16b8c4; --violet:#7259c6; --line:#dbe5ed; --shadow:0 18px 45px rgba(9,28,49,.10); --radius:22px; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:var(--paper); font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; line-height:1.65; }
+    a { color:inherit; }
+    .wrap { width:min(1120px,calc(100% - 40px)); margin:0 auto; }
+    .skip-link { position:absolute; left:-9999px; top:10px; z-index:10; padding:10px 14px; border-radius:10px; background:var(--white); }
+    .skip-link:focus { left:10px; }
+    .site-nav { position:sticky; top:0; z-index:5; background:rgba(7,17,31,.94); border-bottom:1px solid rgba(255,255,255,.12); backdrop-filter:blur(18px); }
+    .nav-inner { display:flex; align-items:center; justify-content:space-between; gap:20px; min-height:70px; }
+    .brand { color:var(--white); text-decoration:none; font-weight:750; letter-spacing:.02em; }
+    .brand span { color:var(--cyan); }
+    .back-link { display:inline-flex; align-items:center; min-height:40px; padding:0 16px; border:1px solid rgba(141,231,235,.5); border-radius:999px; color:#aeeef1; text-decoration:none; font-size:.9rem; font-weight:750; transition:transform .2s ease,background .2s ease; }
+    .back-link:hover,.back-link:focus { transform:translateY(-2px); background:rgba(22,184,196,.14); }
+    .hero { position:relative; overflow:hidden; padding:100px 0 86px; color:var(--white); background:radial-gradient(circle at 80% 5%,rgba(22,184,196,.25),transparent 28%),radial-gradient(circle at 12% 85%,rgba(114,89,198,.25),transparent 32%),linear-gradient(135deg,#07111f,#0c2340 60%,#082d3c); }
+    .hero::after { content:""; position:absolute; right:-5%; bottom:-105px; left:-5%; height:150px; background:var(--paper); transform:rotate(-3deg); }
+    .hero-inner { position:relative; z-index:1; max-width:800px; }
+    .eyebrow,.section-kicker { color:#8de7eb; font-size:.78rem; font-weight:850; letter-spacing:.16em; text-transform:uppercase; }
+    .eyebrow { display:flex; align-items:center; gap:9px; margin-bottom:18px; }
+    .eyebrow::before { content:""; width:32px; height:2px; background:var(--cyan); }
+    h1,h2,h3 { margin:0; line-height:1.15; letter-spacing:-.025em; }
+    h1 { font-size:clamp(2.7rem,6vw,5.4rem); }
+    h2 { font-size:clamp(1.8rem,3vw,2.7rem); }
+    h3 { font-size:1.25rem; }
+    .hero p { max-width:720px; margin:22px 0 0; color:#c9d8e6; font-size:1.13rem; }
+    main { padding-bottom:30px; }
+    section { padding:80px 0 0; scroll-margin-top:88px; }
+    .section-heading { max-width:760px; margin-bottom:30px; }
+    .section-kicker { color:var(--blue); margin-bottom:10px; }
+    .section-heading p { margin:13px 0 0; color:var(--muted); }
+    .role-banner { display:grid; grid-template-columns:1fr auto; gap:22px; align-items:start; padding:28px; border:1px solid #cfe6eb; border-radius:var(--radius); background:linear-gradient(135deg,#effafb,#fff); box-shadow:var(--shadow); }
+    .role-banner h2 { font-size:1.55rem; }
+    .role-banner p { margin:8px 0 0; color:var(--muted); }
+    .date { padding:8px 11px; border-radius:999px; color:#0e6270; background:#dff8fb; font-size:.82rem; font-weight:800; white-space:nowrap; }
+    .project-stack { display:grid; gap:22px; margin-top:24px; }
+    .project { overflow:hidden; border:1px solid var(--line); border-radius:var(--radius); background:var(--white); box-shadow:var(--shadow); }
+    .project-grid { display:grid; grid-template-columns:minmax(0,1fr) 310px; }
+    .project-content { padding:30px; }
+    .project-content p { color:var(--muted); }
+    .project-figure { min-height:260px; background:#061a2a; }
+    .project-figure img { display:block; width:100%; height:100%; object-fit:cover; }
+    .tag-list { display:flex; flex-wrap:wrap; gap:8px; margin:18px 0 0; }
+    .tag { padding:6px 10px; border:1px solid #cfe6eb; border-radius:999px; color:#0e6270; background:#f0fbfc; font-size:.8rem; font-weight:750; }
+    .detail-list { margin:18px 0 0; padding-left:1.2rem; color:var(--muted); }
+    .detail-list li { margin:.65rem 0; }
+    .detail-list strong { color:var(--ink); }
+    .mini-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-top:22px; }
+    .mini-card { padding:25px; border:1px solid var(--line); border-radius:var(--radius); background:var(--white); box-shadow:var(--shadow); }
+    .mini-card p { margin:10px 0 0; color:var(--muted); }
+    .callout { margin-top:28px; padding:24px 28px; border-left:4px solid var(--cyan); border-radius:0 var(--radius) var(--radius) 0; background:#eaf8fa; color:#174250; }
+    footer { margin-top:80px; padding:42px 0; background:var(--navy); color:#bfcedc; }
+    .footer-row { display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; }
+    .footer-row a { color:#8de7eb; }
+    @media (max-width:760px) { .project-grid { grid-template-columns:1fr; } .project-figure { min-height:220px; order:-1; } .mini-grid { grid-template-columns:1fr; } .role-banner { grid-template-columns:1fr; } .date { width:max-content; } }
+    @media (max-width:520px) { .wrap { width:min(100% - 30px,1120px); } .nav-inner { min-height:62px; } .brand { font-size:.92rem; } .back-link { padding:0 12px; font-size:.8rem; } .hero { padding:72px 0 70px; } .project-content { padding:24px; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-nav"><div class="wrap nav-inner"><a class="brand" href="index.html">Dineli <span>Ranathunga</span></a><a class="back-link" href="index.html#gallery">← Back to profile</a></div></header>
+
+  <div class="hero"><div class="wrap hero-inner"><div class="eyebrow">Research &amp; development work</div><h1>Computational research from molecular principles to scientific applications.</h1><p>My work combines molecular dynamics, quantum mechanics, free-energy methods, force-field development, and coarse-grained modeling to address questions in drug discovery, drug delivery, materials, green chemistry, and biomedical engineering.</p></div></div>
+
+  <main id="main">
+    <section id="postdoc"><div class="wrap"><div class="section-heading"><div class="section-kicker">2021–2022 · University of Texas at Dallas</div><h2>Postdoctoral Research Associate</h2><p>Two main computational research projects focused on cancer therapeutics and bio-based ionic liquids.</p></div>
+      <div class="role-banner"><div><h2>Postdoctoral research portfolio</h2><p>University of Texas at Dallas · Computational chemistry, biophysics, and force-field development.</p></div><span class="date">June 2021 – August 2022</span></div>
+      <div class="project-stack">
+        <article id="breast-cancer" class="project"><div class="project-grid"><div class="project-content"><div class="section-kicker">Drug discovery</div><h3>Breast-cancer therapeutics and ubiquitination machinery</h3><p>Investigated molecular mechanisms relevant to breast-cancer therapeutic discovery, including BRCA protein and nucleosomal histone dynamics, post-translational modifications, and protein–ligand interactions.</p><div class="tag-list"><span class="tag">Molecular dynamics</span><span class="tag">Free-energy perturbation</span><span class="tag">Umbrella sampling</span><span class="tag">AMBER</span><span class="tag">PROTACs</span><span class="tag">PTMs</span></div><ul class="detail-list"><li>Applied molecular dynamics and free-energy approaches to characterize conformational dynamics and molecular interactions.</li><li>Studied BRCA-associated protein and nucleosomal histone dynamics in relation to regulation of ubiquitination machinery.</li><li>Explored PROTACs and post-translational modifications as molecular mechanisms relevant to therapeutic design.</li></ul></div><div class="project-figure"><img src="assets/protein-ligand-1.png" alt="Protein and ligand molecular visualization"></div></div></article>
+        <article id="ionic-liquids" class="project"><div class="project-grid"><div class="project-content"><div class="section-kicker">Green chemistry and drug delivery</div><h3>Bio-based ionic liquids and AMOEBA force fields</h3><p>Designed bio-based ionic liquids and developed AMOEBA polarizable force fields to model their molecular behavior and predict properties relevant to drug delivery and green-chemistry applications.</p><div class="tag-list"><span class="tag">AMOEBA</span><span class="tag">Polarizable force fields</span><span class="tag">Molecular dynamics</span><span class="tag">Quantum mechanics</span><span class="tag">Property prediction</span></div><ul class="detail-list"><li>Developed and applied AMOEBA polarizable force fields for bio-based ionic-liquid systems.</li><li>Combined molecular dynamics and quantum-mechanical calculations to understand structure and interactions.</li><li>Predicted physicochemical properties relevant to pharmaceutical delivery and sustainable chemical design.</li></ul></div><div class="project-figure"><img src="assets/molecular-box.png" alt="Molecular simulation box visualization"></div></div></article>
+      </div>
+    </div></section>
+
+    <section id="research-assistant"><div class="wrap"><div class="section-heading"><div class="section-kicker">2016–2021 · University of Texas at Dallas</div><h2>Research Assistant</h2><p>Eight main computational research projects spanning molecular delivery, materials, nanotechnology, polymer systems, and interfacial phenomena.</p></div>
+      <div class="role-banner"><div><h2>Computational research portfolio</h2><p>University of Texas at Dallas · Molecular simulation, enhanced sampling, free-energy methods, and scientific software.</p></div><span class="date">August 2016 – May 2021</span></div>
+      <div class="project-stack">
+        <article id="implant-therapeutics" class="project"><div class="project-grid"><div class="project-content"><div class="section-kicker">Drug design and delivery</div><h3>Implant osseointegration in diabetic conditions</h3><p>Used molecular dynamics to investigate a drug-delivery approach intended to induce implant osseointegration in diabetic conditions, with an emphasis on HMGB1 delivery and titanium-surface interactions.</p><div class="tag-list"><span class="tag">Molecular dynamics</span><span class="tag">Enhanced sampling</span><span class="tag">Protein binding</span><span class="tag">Titanium surfaces</span><span class="tag">Ionic-liquid coatings</span></div><ul class="detail-list"><li>Designed structural isoforms of HMGB1 and studied pre-delivery and post-implantation release scenarios.</li><li>Evaluated free-energy profiles of protein folding and protein-binding free energies with enhanced-sampling methods.</li><li>Studied the influence of ions and water on drug adsorption induced by titanium-implant surface modifications.</li><li>Characterized dicationic imidazolium-based ionic-liquid coatings on titanium surfaces for HMGB1 drug delivery.</li></ul></div><div class="project-figure"><img src="assets/molecular-simulation-interface.png" alt="Molecular simulation of molecules near an interface"></div></div></article>
+
+        <div class="mini-grid">
+          <article id="nanoparticles" class="mini-card"><div class="section-kicker">Oncology drug development</div><h3>Glutathione-coated gold nanoparticles</h3><p>Investigated glutathione-coated gold nanoparticles for cancer-related imaging and diagnosis applications.</p><ul class="detail-list"><li>Probed the effect of pH on the organization of TAMRA-conjugated glutathione on gold nanoparticles.</li><li>Evaluated free-energy profiles using umbrella sampling, metadynamics, ABF, and SMD for tumor diagnosis and kidney functional imaging.</li></ul></article>
+          <article id="polymer-sensors" class="mini-card"><div class="section-kicker">Molecular recognition</div><h3>Polyvinylpyrrolidone fluorescent sensors</h3><p>Performed <em>in silico</em> modeling of polyvinylpyrrolidone as an anion-responsive fluorescent polymer for molecular recognition in water.</p><div class="tag-list"><span class="tag">Polymer modeling</span><span class="tag">Fluorescence</span><span class="tag">Molecular recognition</span></div></article>
+          <article id="protein-folding" class="mini-card"><div class="section-kicker">Drug encapsulation</div><h3>Protein folding pathways</h3><p>Studied protein-folding pathways using the self-organized polymer-side-chain model to inform safe drug-encapsulation approaches.</p><ul class="detail-list"><li>Applied coarse-grained molecular dynamics.</li><li>Edited LAMMPS source code to support the simulation workflow.</li></ul></article>
+          <article id="interfaces" class="mini-card"><div class="section-kicker">Surfaces and interfaces</div><h3>Water and refrigerant condensation</h3><p>Investigated how surface chemistry and wettability influence condensation processes relevant to water harvesting, desalination, thermal management, and air-conditioning systems.</p><ul class="detail-list"><li>Modeled surfaces with tunable wettability to study water condensation.</li><li>Studied ultralow-surface-tension refrigerant-fluid condensation on self-assembled monolayer surfaces.</li></ul></article>
+          <article class="mini-card"><div class="section-kicker">Materials and manufacturing</div><h3>Laser-activated nanomaterials</h3><p>Investigated how chemistry affects interactions between ultrafast pulsed laser-activated nanomaterials for biomedical devices and nanostructure manufacturing using molecular dynamics.</p><div class="tag-list"><span class="tag">Nanomaterials</span><span class="tag">Molecular dynamics</span><span class="tag">Biomedical devices</span></div></article>
+          <article class="mini-card"><div class="section-kicker">Ionic-liquid properties</div><h3>Thermophysical-property prediction</h3><p>Predicted thermophysical properties of novel ionic liquids using molecular dynamics and <em>ab initio</em> quantum-mechanical methods.</p><div class="tag-list"><span class="tag">Molecular dynamics</span><span class="tag">Ab initio QM</span><span class="tag">Ionic liquids</span></div></article>
+        </div>
+      </div>
+      <div class="callout">These projects connected molecular-scale properties and interactions to practical questions in drug delivery, implant design, diagnostics, nanomaterials, water management, and thermal systems.</div>
+    </div></section>
+
+    <section id="undergraduate"><div class="wrap"><div class="section-heading"><div class="section-kicker">2012–2013 · University of Peradeniya, Sri Lanka</div><h2>Undergraduate Research Assistant</h2><p>Early computational and experimental research in topical drug-development systems.</p></div>
+      <article class="project"><div class="project-grid"><div class="project-content"><div class="section-kicker">Topical drug development</div><h3>Drug-administered skincare products</h3><p>Conducted theoretical studies on drug-administered skincare products using molecular dynamics simulations. Developed triolein and beta-carotene models based on SDK coarse-grained force fields.</p><div class="tag-list"><span class="tag">Molecular dynamics</span><span class="tag">SDK coarse-grained force fields</span><span class="tag">Triolein</span><span class="tag">Beta-carotene</span><span class="tag">Topical delivery</span></div></div><div class="project-figure"><img src="assets/molecular-assembly.png" alt="Molecular assembly visualization"></div></div></article>
+    </div></section>
+  </main>
+
+  <footer><div class="wrap footer-row"><span>© 2026 Dineli T. S. Ranathunga</span><a href="index.html#gallery">Return to Research &amp; Development Work ↑</a></div></footer>
+</body>
+</html>
