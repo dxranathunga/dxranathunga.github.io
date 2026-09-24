@@ -94,6 +94,15 @@
     .presentation-group h3 { color:var(--blue); }
     .presentation-list { margin:22px 0 0; }
     .presentation-list strong { color:var(--ink); }
+    .gallery-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .gallery-item { position:relative; display:block; min-height:220px; padding:0; overflow:hidden; border:1px solid var(--line); border-radius:var(--radius); background:#07111f; box-shadow:var(--shadow); cursor:pointer; text-align:left; color:inherit; text-decoration:none; }
+    .gallery-item.featured { grid-column:span 2; }
+    .gallery-item img { display:block; width:100%; height:100%; min-height:220px; object-fit:cover; transition:transform .55s cubic-bezier(.2,.8,.2,1),opacity .3s ease; }
+    .gallery-item::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 43%,rgba(2,11,20,.88)); pointer-events:none; }
+    .gallery-caption { position:absolute; z-index:1; right:0; bottom:0; left:0; padding:20px; color:var(--white); font-weight:750; line-height:1.35; }
+    .gallery-caption small { display:block; margin-top:4px; color:#aeeef1; font-size:.76rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+    .gallery-item:hover img,.gallery-item:focus-visible img { transform:scale(1.07); opacity:.86; }
+    .gallery-item:focus-visible { outline:3px solid var(--cyan); outline-offset:3px; }
     footer { margin-top:90px; padding:50px 0; color:#bfcedc; background:var(--navy); scroll-margin-top:80px; }
     footer h2 { color:var(--white); font-size:2rem; }
     footer p { max-width:640px; }
@@ -121,8 +130,8 @@
     @keyframes molecule-float { 0%,100% { transform:translateY(0) scale(1); } 50% { transform:translateY(-10px) scale(1.08); } }
     @keyframes halo-spin { to { transform:rotate(360deg); } }
     @keyframes bond-flow { to { stroke-dashoffset:-64; } }
-    @media (max-width:900px) { .hero-grid,.two-col,.presentation-groups { grid-template-columns:1fr; } .molecule { min-height:240px; max-width:600px; } .molecule svg { min-height:240px; } .stats { grid-template-columns:repeat(2,1fr); } .project-grid,.service-grid { grid-template-columns:1fr 1fr; } }
-    @media (max-width:620px) { .nav-inner { position:relative; min-height:64px; } .menu-toggle { display:block; } .nav-links { position:absolute; top:calc(100% + 8px); right:0; flex-direction:column; align-items:flex-start; width:min(270px,calc(100vw - 40px)); padding:18px; border:1px solid rgba(255,255,255,.14); border-radius:16px; background:rgba(7,17,31,.98); box-shadow:0 20px 45px rgba(0,0,0,.25); opacity:0; visibility:hidden; transform:translateY(-10px); transition:opacity .2s ease,transform .2s ease,visibility .2s; } .nav-links.is-open { opacity:1; visibility:visible; transform:translateY(0); } .nav-links a::after { bottom:-3px; } .hero { padding-top:70px; } .stats,.project-grid,.service-grid { grid-template-columns:1fr; } .publication { grid-template-columns:1fr; gap:4px; } .nav-links a { font-size:.9rem; } }
+    @media (max-width:900px) { .hero-grid,.two-col,.presentation-groups { grid-template-columns:1fr; } .molecule { min-height:240px; max-width:600px; } .molecule svg { min-height:240px; } .stats { grid-template-columns:repeat(2,1fr); } .project-grid,.service-grid,.gallery-grid { grid-template-columns:1fr 1fr; } }
+    @media (max-width:620px) { .nav-inner { position:relative; min-height:64px; } .menu-toggle { display:block; } .nav-links { position:absolute; top:calc(100% + 8px); right:0; flex-direction:column; align-items:flex-start; width:min(270px,calc(100vw - 40px)); padding:18px; border:1px solid rgba(255,255,255,.14); border-radius:16px; background:rgba(7,17,31,.98); box-shadow:0 20px 45px rgba(0,0,0,.25); opacity:0; visibility:hidden; transform:translateY(-10px); transition:opacity .2s ease,transform .2s ease,visibility .2s; } .nav-links.is-open { opacity:1; visibility:visible; transform:translateY(0); } .nav-links a::after { bottom:-3px; } .hero { padding-top:70px; } .stats,.project-grid,.service-grid,.gallery-grid { grid-template-columns:1fr; } .gallery-item.featured { grid-column:auto; } .publication { grid-template-columns:1fr; gap:4px; } .nav-links a { font-size:.9rem; } }
     @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { transition:none !important; animation:none !important; } .reveal { opacity:1 !important; transform:none !important; } }
   </style>
 </head>
@@ -134,7 +143,7 @@
       <a class="brand" href="#top">Dineli <span>Ranathunga</span></a>
       <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span><span></span></button>
       <nav id="primary-nav" class="nav-links" aria-label="Primary navigation">
-        <a href="#about">About</a><a href="#research">Research</a><a href="#experience">Experience</a><a href="#publications">Publications</a><a href="#presentations">Presentations</a><a href="#contact">Contact</a>
+        <a href="#about">About</a><a href="#research">Research</a><a href="#gallery">Research Work</a><a href="#experience">Experience</a><a href="#publications">Publications</a><a href="#presentations">Presentations</a><a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
@@ -174,6 +183,20 @@
         <article class="card project-card"><div class="card-body"><h3>Scalable scientific computing</h3><p>Developing reproducible Python and C/C++ tools for Linux, HPC, GPU-enabled, and cloud workflows using MPI, CUDA, AWS, and Rescale.</p><div class="tag-list"><span class="tag">Python</span><span class="tag">C / C++</span><span class="tag">HPC / GPU</span></div></div></article>
       </div>
     </div></section>
+
+    <section id="gallery"><div class="wrap"><div class="section-heading"><div class="section-kicker">Research &amp; development work</div><h2>Computational research across molecular systems.</h2><p>Explore selected research themes and the computational methods used to address them. Select a visualization to read the detailed project history.</p></div><div class="gallery-grid">
+      <a class="gallery-item featured" href="research_work.html#implant-therapeutics"><img src="assets/molecular-simulation-interface.png" alt="Molecular simulation visualization showing molecules above an interface"><span class="gallery-caption">Implant therapeutics and molecular interactions<small>Drug design and delivery · View research details</small></span></a>
+      <a class="gallery-item" href="research_work.html#ionic-liquids"><img src="assets/molecular-assembly.png" alt="Molecular assembly visualization"><span class="gallery-caption">Bio-based ionic liquids<small>Force fields, MD, and QM</small></span></a>
+      <a class="gallery-item" href="research_work.html#implant-therapeutics"><img src="assets/protein-membrane-system.png" alt="Protein and membrane system visualization"><span class="gallery-caption">Protein–surface interactions<small>HMGB1 delivery systems</small></span></a>
+      <a class="gallery-item" href="research_work.html#implant-therapeutics"><img src="assets/membrane-interaction.png" alt="Molecular interaction near a membrane visualization"><span class="gallery-caption">Titanium implant coatings<small>Drug-release and adsorption studies</small></span></a>
+      <a class="gallery-item" href="research_work.html#ionic-liquids"><img src="assets/molecular-box.png" alt="Molecular box visualization"><span class="gallery-caption">Ionic-liquid property prediction<small>Thermophysical properties and green chemistry</small></span></a>
+      <a class="gallery-item" href="research_work.html#breast-cancer"><img src="assets/protein-ligand-1.png" alt="Protein and ligand visualization"><span class="gallery-caption">Breast-cancer therapeutics<small>MD, FEP, PROTACs, and PTMs</small></span></a>
+      <a class="gallery-item" href="research_work.html#breast-cancer"><img src="assets/protein-ligand-2.png" alt="Protein and ligand interaction visualization"><span class="gallery-caption">Nucleosomal histone dynamics<small>Molecular recognition and interactions</small></span></a>
+      <a class="gallery-item" href="research_work.html#nanoparticles"><img src="assets/molecular-surface-system.png" alt="Molecular surface system visualization"><span class="gallery-caption">Nanoparticles and imaging systems<small>Oncology drug-development research</small></span></a>
+      <a class="gallery-item featured" href="research_work.html#polymer-sensors"><img src="assets/molecular-network.png" alt="Molecular network visualization"><span class="gallery-caption">Polymer sensors and molecular recognition<small><em>In silico</em> modeling in water</small></span></a>
+      <a class="gallery-item" href="research_work.html#protein-folding"><img src="assets/protein-membrane-system-2.png" alt="Protein and membrane system visualization"><span class="gallery-caption">Protein folding and encapsulation<small>Coarse-grained molecular dynamics</small></span></a>
+      <a class="gallery-item" href="research_work.html#interfaces"><img src="assets/protein-solution-system.png" alt="Protein in solution visualization"><span class="gallery-caption">Wettability and condensation<small>Water harvesting and thermal management</small></span></a>
+    </div></div></section>
 
     <section id="experience"><div class="wrap"><div class="section-heading"><div class="section-kicker">Experience</div><h2>Research, development, and scientific leadership.</h2><p>Selected milestones from industry and academic research.</p></div><div class="timeline">
       <article class="timeline-item"><div class="timeline-date">2025 — Present</div><h3>Computational Chemist, Scientist III · Thermo Fisher Scientific</h3><p>Lead computational chemistry work across early-stage drug development projects, developing MD, QM, FEP, AI/ML, QSAR/QSPR, and statistical workflows for compound selection, solubility, bioavailability, delivery, formulation, and ADMET questions.</p></article>
@@ -292,6 +315,7 @@
       }, { threshold:.5 });
       statsObserver.observe(statsContainer);
     }
+
   </script>
 </body>
 </html>
